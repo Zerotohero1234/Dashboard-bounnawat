@@ -9,9 +9,10 @@ import {
   USER_LOGOUT,
 } from "../Constants/UserContants";
 import axios from "axios";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 
 axios.defaults.baseURL = "https://server-bounnawat.herokuapp.com/";
+// axios.defaults.baseURL = "http://localhost:5000";
 
 // LOGIN
 export const login = (email, password) => async (dispatch) => {
@@ -39,8 +40,8 @@ export const login = (email, password) => async (dispatch) => {
     if (!data.isAdmin === true) {
       toast.error("ບັນຊີຂອງທ່ານບໍ່ແມ່ນຜູ້ດູແລລະບົບ", ToastObjects);
       dispatch({
-        type: USER_LOGIN_FAIL
-      })
+        type: USER_LOGIN_FAIL,
+      });
     } else {
       dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
     }
@@ -85,9 +86,7 @@ export const listUser = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      `/api/users`, config
-    );
+    const { data } = await axios.get(`/api/users`, config);
 
     dispatch({ type: USER_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -104,4 +103,3 @@ export const listUser = () => async (dispatch, getState) => {
     });
   }
 };
-

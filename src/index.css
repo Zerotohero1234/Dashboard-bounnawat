@@ -911,3 +911,17 @@ ul.row-sm {
   line-height: 0.7;
   vertical-align: bottom;
 }
+
+.print-source {
+  display: none;
+}
+
+body > .print-source {
+  display: block;
+}
+
+@media print {
+  .print-source {
+    display: block;
+  }
+}
