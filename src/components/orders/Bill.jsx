@@ -96,6 +96,25 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
                     </b>
                   </dd>
                 </dl>
+                <dl className="dlist">
+                <dt className="text-muted">ສະຖານະການຊຳລະເງິນ:</dt>
+                <dd>
+                  {
+                    order.isPaid ? (
+                      <span className="badge rounded-pill alert alert-success text-success">
+                        ຈ່າຍແລ້ວ
+                      </span>
+                    )
+                    :
+                    (
+                      <span className="badge rounded-pill alert alert-danger text-danger">
+                        ຍັງບໍ່ທັນຈ່າຍ
+                      </span>
+                    )
+                  }
+                  
+                </dd>
+              </dl>
               </article>
             </td>
           </tr>
